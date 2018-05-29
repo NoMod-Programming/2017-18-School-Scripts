@@ -1,0 +1,119 @@
+Lbl MU
+Menu("TRIANGLE SOLVER ","AAS",T1,"SAS",T2,"SSS",T3,"SSA",T4)
+Lbl T1
+Input "Angle A: ",A
+Input "Angle B: ",B
+Input "Side  a: ",D
+180-(A+B)→C
+(D/sin(A))*sin(B)→E
+(D/sin(A))*sin(C)→F
+ClrHome
+Output(1,1,"Press any key…")
+Output(2,1,"Angle C: ")
+Output(2,10,C)
+Output(3,1,"Side b: ")
+Output(3,9,E)
+Output(4,1,"Side c: ")
+Output(4,9,F)
+Repeat getKey
+End
+ClrHome
+Return
+Lbl T2
+Input "Side  a: ",D
+Input "Angle C: ",C
+Input "Side  b: ",E
+√((D²+E²)-(2*D*E*cos(C)))→F
+sin⁻¹((sin(C)/F)*D)→A
+sin⁻¹((sin(C)/F)*E)→B
+ClrHome
+Output(1,1,"Press any key…")
+Output(2,1,"Angle A: ")
+Output(2,10,A)
+Output(3,1,"Side C: ")
+Output(3,9,F)
+Output(4,1,"Angle B: ")
+Output(4,10,B)
+Repeat getKey
+End
+ClrHome
+Return
+Lbl T3
+Input "Side a: ",D
+Input "Side b: ",E
+Input "Side c: ",F
+cos⁻¹(((E²+F²)-D²)/(2*E*F))→A
+cos⁻¹(((F²+D²)-E²)/(2*F*D))→B
+cos⁻¹(((D²+E²)-F²)/(2*D*E))→C
+ClrHome
+Output(1,1,"Press any key…")
+Output(2,1,"Angle A: ")
+Output(2,10,A)
+Output(3,1,"Angle B: ")
+Output(3,10,B)
+Output(4,1,"Angle C: ")
+Output(4,10,C)
+Repeat getKey
+End
+ClrHome
+Return
+
+Lbl T4
+Input "Side a: ",D
+Input "Side b: ",E
+Input "Angle A: ",A
+ClrHome
+E*sin(A)→H
+If ((A<90 and D=H) or D>E)
+Then
+sin⁻¹((sin(A)/D)*E)→B
+180-(A+B)→C
+(D/sin(A))*sin(C)→F
+Output(1,1,"Press any key…")
+Output(2,1,"Angle B: ")
+Output(2,10,B)
+Output(3,1,"Angle C: ")
+Output(3,10,C)
+Output(4,1,"Side C: ")
+Output(4,9,F)
+Repeat getKey
+End
+ClrHome
+Return
+End
+If ((A<90 and D<H) or (A>90 and D≤E))
+Then
+Output(1,1,"Press any key…")
+Output(2,1,"No solution")
+Repeat getKey
+End
+ClrHome
+Return
+End
+sin⁻¹((sin(A)/D)*E)→B
+180-(A+B)→C
+(D/sin(A))*sin(C)→F
+Output(1,1,"First case…")
+Output(2,1,"Angle B: ")
+Output(2,10,B)
+Output(3,1,"Angle C: ")
+Output(3,10,C)
+Output(4,1,"Side C: ")
+Output(4,9,F)
+Repeat getKey
+End
+ClrHome
+180-sin⁻¹((sin(A)/D)*E)→B
+180-(A+B)→C
+(D/sin(A))*sin(C)→F
+Output(1,1,"Second case…")
+Output(2,1,"Angle B: ")
+Output(2,10,B)
+Output(3,1,"Angle C: ")
+Output(3,10,C)
+Output(4,1,"Side C: ")
+Output(4,9,F)
+Repeat getKey
+End
+ClrHome
+Return
